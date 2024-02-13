@@ -1,0 +1,40 @@
+{
+  "name": "@onem/aws-ecs-service",
+  "version": "0.0.0.0",
+  "description": "An example TypeScript service that runs on AWS ECS infrastructure",
+  "main": "src/index.ts",
+  "repository": "",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@apollo/server": "^4.9.5",
+    "@onem/lib-ts-service": "*",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "graphql": "^16.8.1",
+    "http": "^0.0.1-security",
+    "pino": "^8.16.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.16",
+    "@types/express": "^4.17.21",
+    "@types/pino": "^7.0.5",
+    "ts-node-dev": "^2.0.0"
+  },
+  "scripts": {
+    "lint": "eslint '*.ts'",
+    "lint:fix": "npm run lint -- --quiet --fix",
+    "prettier": "npx prettier src test -- --check",
+    "prettier:fix": "npm run prettier -- --write",
+    "format": "npm run prettier:fix && npm run lint:fix",
+    "clean": "rm -rf ./dist node_modules coverage",
+    "test": "jest --testMatch=\"**/tests/unit/*.test.ts\"",
+    "test:integ": "jest --testMatch=\"**/tests/integ/*.test.ts\"",
+    "build": "tsc",
+    "esbuild": "node esbuild.config.mjs",
+    "serve-node": "ts-node src/index.ts",
+    "start": "nodemon --watch src/ --exec \"npm run serve-node\" --verbose -e ts",
+    "watch": "npm run watch-node && npm run watch-ts",
+    "watch-node": "nodemon dist/server.js",
+    "watch-ts": "tsc -w"
+  }
+}

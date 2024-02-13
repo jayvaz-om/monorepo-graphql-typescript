@@ -1,0 +1,26 @@
+{
+  "name": "@onem/lib-ts-service",
+  "version": "0.0.0.0",
+  "description": "A TypeScript library that implements the business logic of the service",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "repository": "",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "graphql": "^16.8.1"
+  },
+  "devDependencies": {
+    "ts-node-dev": "^2.0.0"
+  },
+  "scripts": {
+    "lint": "eslint '*.ts'",
+    "lint:fix": "npm run lint -- --quiet --fix",
+    "prettier": "npx prettier src test -- --check",
+    "prettier:fix": "npm run prettier -- --write",
+    "format": "npm run prettier:fix && npm run lint:fix",
+    "clean": "rm -rf ./dist node_modules coverage",
+    "test": "jest --testMatch=\"**/test/unit/*.test.ts\"",
+    "test:integ": "jest --testMatch=\"**/test/integ/*.test.ts\"",
+    "build": "tsc"
+  }
+}

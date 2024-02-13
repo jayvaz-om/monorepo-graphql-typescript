@@ -1,0 +1,26 @@
+{
+  "name": "@onem/cdk",
+  "version": "0.1.0",
+  "bin": {
+    "cdk-lambda": "bin/cdk-lambda.js"
+  },
+  "scripts": {
+    "lint": "eslint '*.ts'",
+    "lint:fix": "npm run lint -- --quiet --fix",
+    "prettier": "npx prettier src test -- --check",
+    "prettier:fix": "npm run prettier -- --write",
+    "format": "npm run prettier:fix && npm run lint:fix",
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "jest",
+    "cdk:lambda": "cdk --app 'npx ts-node --prefer-ts-exts bin/cdk-lambda.ts'",
+    "cdk:ecs": "cdk --app 'npx ts-node --prefer-ts-exts bin/cdk-ecs.ts'"
+  },
+  "dependencies": {
+    "@aws-cdk/aws-apigatewayv2-alpha": "^2.110.0-alpha.0",
+    "@aws-cdk/aws-apigatewayv2-integrations-alpha": "^2.110.0-alpha.0",
+    "aws-cdk-lib": "2.110.0",
+    "constructs": "^10.0.0",
+    "source-map-support": "^0.5.21"
+  }
+}
